@@ -1,10 +1,9 @@
 #ifndef MY_FIG
 #define MY_FIG
-
 #include <iostream>
 
 template<class T1, class T2>
-std::ostream& operator << (std::ostream& out, const std::pair<T1, T2>& p) {
+ostream& operator << (ostream& out, const pair<T1, T2>& p) {
 	out << "(" << p.first << ", " << p.second << ")";
 	return out;
 }
@@ -12,9 +11,9 @@ std::ostream& operator << (std::ostream& out, const std::pair<T1, T2>& p) {
 template <typename T>
 struct Triangle
 {
-	std::pair<T, T> Cord;
+	pair<T, T> Cord;
 	T Base, Hight;
-	Triangle(const std::pair<T, T>& cord, T base, T hight) : Cord(cord), Base(base), Hight(hight) {}
+	Triangle(const pair<T, T>& cord, T base, T hight) : Cord(cord), Base(base), Hight(hight) {}
 };
 
 template<typename T>
@@ -23,11 +22,11 @@ T SquareCalculation(const Triangle<T>& tri) {
 }
 
 template<typename T>
-std::ostream& operator << (std::ostream& o, const Triangle<T>& tri) {
+ostream& operator << (ostream& o, const Triangle<T>& tri) {
 	o << "Triangle {" << tri.Cord << ", ";
-	std::pair<T, T> next_cord(tri.Cord.first + tri.Base / 2.0, tri.Cord.second + tri.Hight);
+	pair<T, T> next_cord(tri.Cord.first + tri.Base / 2.0, tri.Cord.second + tri.Hight);
 	o << next_cord << ", ";
-	next_cord = std::pair<T, T>(tri.Cord.first + tri.Base, tri.Cord.second);
+	next_cord = pair<T, T>(tri.Cord.first + tri.Base, tri.Cord.second);
 	o << next_cord << "}";
 	return o;
 }
@@ -35,9 +34,9 @@ std::ostream& operator << (std::ostream& o, const Triangle<T>& tri) {
 template <typename T>
 struct Square
 {
-	std::pair<T, T> Cord;
+	pair<T, T> Cord;
 	T Side;
-	Square(const std::pair<T, T>& cord, T side) : Cord(cord), Side(side) {}
+	Square(const pair<T, T>& cord, T side) : Cord(cord), Side(side) {}
 };
 
 template<typename T>
@@ -46,13 +45,13 @@ T SquareCalculation(const Square<T>& sq) {
 }
 
 template<typename T>
-std::ostream& operator << (std::ostream& o, const Square<T>& sq) {
+ostream& operator << (ostream& o, const Square<T>& sq) {
 	o << "Square {" << sq.Cord << ", ";
-	std::pair<T, T> next_cord(sq.Cord.first, sq.Cord.second + sq.Side);
+	pair<T, T> next_cord(sq.Cord.first, sq.Cord.second + sq.Side);
 	o << next_cord << ", ";
-	next_cord = std::pair<T, T>(sq.Cord.first + sq.Side, sq.Cord.second + sq.Side);
+	next_cord = pair<T, T>(sq.Cord.first + sq.Side, sq.Cord.second + sq.Side);
 	o << next_cord << ", ";
-	next_cord = std::pair<T, T>(sq.Cord.first + sq.Side, sq.Cord.second);
+	next_cord = pair<T, T>(sq.Cord.first + sq.Side, sq.Cord.second);
 	o << next_cord << "}";
 	return o;
 }
@@ -60,9 +59,9 @@ std::ostream& operator << (std::ostream& o, const Square<T>& sq) {
 template <typename T>
 struct Rectangle
 {
-	std::pair<T, T> Cord;
+	pair<T, T> Cord;
 	T LargerSide, SmallerSide;
-	Rectangle(const std::pair<T, T>& cord, T largerSide, T smallerSide) : Cord(cord), LargerSide(largerSide), SmallerSide(smallerSide) {}
+	Rectangle(const pair<T, T>& cord, T largerSide, T smallerSide) : Cord(cord), LargerSide(largerSide), SmallerSide(smallerSide) {}
 };
 
 template<typename T>
@@ -71,13 +70,13 @@ T SquareCalculation(const Rectangle<T>& re) {
 }
 
 template<typename T>
-std::ostream& operator << (std::ostream& o, const Rectangle<T>& re) {
+ostream& operator << (ostream& o, const Rectangle<T>& re) {
 	o << "Rectangle {" << re.Cord << ", ";
-	std::pair<T, T> next_cord(re.Cord.first, re.Cord.second + re.SmallerSide);
+	pair<T, T> next_cord(re.Cord.first, re.Cord.second + re.SmallerSide);
 	o << next_cord << ", ";
-	next_cord = std::pair<T, T>(re.Cord.first + re.LargerSide, re.Cord.second + re.SmallerSide);
+	next_cord = pair<T, T>(re.Cord.first + re.LargerSide, re.Cord.second + re.SmallerSide);
 	o << next_cord << ", ";
-	next_cord = std::pair<T, T>(re.Cord.first + re.LargerSide, re.Cord.second);
+	next_cord = pair<T, T>(re.Cord.first + re.LargerSide, re.Cord.second);
 	o << next_cord << "}";
 	return o;
 }
